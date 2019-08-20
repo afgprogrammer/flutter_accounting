@@ -19,7 +19,7 @@ class _CardViewComponentState extends State<CardViewComponent> {
         onTap: () {
         },
         child: Container(
-          margin: EdgeInsets.only(right: 15),
+          margin: EdgeInsets.only(right: 10),
           decoration: BoxDecoration(
             color: widget.card.color,
             borderRadius: BorderRadius.circular(20.0),

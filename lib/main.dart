@@ -27,7 +27,40 @@ class HomePage extends StatelessWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
-                    CardViewComponent(CardModel(name: "MasterCard", bank: "Azizi", number: "1111 **** **** 1111", currency: "AF", available: 10000, color: Color.fromRGBO(27, 31, 51, 1)))
+                    CardViewComponent(CardModel(name: "MasterCard", bank: "Azizi", number: "1111 **** **** 1111", currency: "AF", available: 10000, color: Color.fromRGBO(27, 31, 51, 1))),
+                    AspectRatio(
+                      aspectRatio: 1 / 2,
+                      child: GestureDetector(
+                        onTap: () {
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          
+                          child: Padding(
+                            padding: EdgeInsets.all(15),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Container(
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Color.fromRGBO(173, 209, 234, 1)
+                                  ),
+                                  child: Icon(
+                                    Icons.add,
+                                    size: 30,
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+                        ),
+                      )
+                    )
                   ],
                 ),
               )
