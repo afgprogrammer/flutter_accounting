@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_accounting/Components/AppBarComponent.dart';
 import 'package:flutter_accounting/Components/CardViewComponent.dart';
+import 'package:flutter_accounting/Components/TransactionComponent.dart';
 import 'package:flutter_accounting/Models/CardModel.dart';
+import 'package:flutter_accounting/Models/TransactionModel.dart';
 import 'package:flutter_accounting/Styles/MainStyles.dart';
+import 'package:flutter_accounting/Styles/TextStyles.dart';
 
 void main() => runApp(
   new MaterialApp(
@@ -21,6 +24,7 @@ class HomePage extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
                 height: 210,
@@ -63,6 +67,22 @@ class HomePage extends StatelessWidget {
                     )
                   ],
                 ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Text("Last Transactions", style: TextStyles.headingTitle),
+              SizedBox(
+                height: 10,
+              ),
+              Expanded(                  
+                child: ListView(
+                  children: <Widget>[
+                    TransactionComponent(data: new TransactionModel(name: 'Shoping', price: 2000, type: '-'),),
+                    TransactionComponent(data: new TransactionModel(name: 'Book', price: 300, type: '-'),),
+                    TransactionComponent(data: new TransactionModel(name: 'Sallery', price: 11200, type: '+'),),
+                  ],
+                )
               )
             ],
           ),
