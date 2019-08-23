@@ -5,6 +5,7 @@ import 'package:flutter_accounting/Components/CardViewComponent.dart';
 import 'package:flutter_accounting/Components/TransactionComponent.dart';
 import 'package:flutter_accounting/Models/CardModel.dart';
 import 'package:flutter_accounting/Models/TransactionModel.dart';
+import 'package:flutter_accounting/Pages/AddCardPage.dart';
 import 'package:flutter_accounting/Styles/MainStyles.dart';
 import 'package:flutter_accounting/Styles/TextStyles.dart';
 
@@ -20,7 +21,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MainStyles.bodyColor,
-      appBar: AppBarComponent.getAppBar("Wallet"),
+      appBar: AppBarComponent.getAppBar("Wallet", null),
       floatingActionButton: ActionButtonComponent(),
       body: SafeArea(
         child: Padding(
@@ -38,6 +39,9 @@ class HomePage extends StatelessWidget {
                       aspectRatio: 1 / 2,
                       child: GestureDetector(
                         onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (_) {
+                            return AddCardPage();
+                          }));
                         },
                         child: Container(
                           decoration: BoxDecoration(
