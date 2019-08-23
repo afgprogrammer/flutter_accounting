@@ -3,15 +3,15 @@ import 'package:flutter_accounting/Models/TransactionModel.dart';
 
 class TransactionComponent extends StatefulWidget {
 
-  TransactionModel data;
+  final TransactionModel data;
 
   TransactionComponent({this.data}) : super();
 
   @override
-  _TransactionViewState createState() => _TransactionViewState();
+  _TransactionComponentState createState() => _TransactionComponentState();
 }
 
-class _TransactionViewState extends State<TransactionComponent> {
+class _TransactionComponentState extends State<TransactionComponent> {
 
   @override
   Widget build(BuildContext context) {
