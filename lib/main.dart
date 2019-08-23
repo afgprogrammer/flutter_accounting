@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_accounting/Components/ActionButtonComponent.dart';
 import 'package:flutter_accounting/Components/AppBarComponent.dart';
 import 'package:flutter_accounting/Components/CardViewComponent.dart';
 import 'package:flutter_accounting/Components/TransactionComponent.dart';
@@ -20,6 +21,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: MainStyles.bodyColor,
       appBar: AppBarComponent.getAppBar("Wallet"),
+      floatingActionButton: ActionButtonComponent(),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
