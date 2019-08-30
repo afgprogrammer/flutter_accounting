@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_accounting/Components/AppBarComponent.dart';
+import 'package:flutter_accounting/Models/CardModel.dart';
 import 'package:flutter_accounting/Styles/MainStyles.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_accounting/Providers/CardProvider.dart';
 
 class AddCardPage extends StatefulWidget {
-
-  AddCardPage({Key key}) : super(key: key);
-
   @override
   _AddCardPageState createState() => _AddCardPageState();
 }
@@ -19,6 +19,12 @@ class _AddCardPageState extends State<AddCardPage> {
   TextEditingController availableController = new TextEditingController();
   TextEditingController currencyController = new TextEditingController();
 
+  void onAdd() {
+    final CardModel card = CardModel(color: Colors.blue, name: nameController.text, number: numberController.text, bank: bankController.text, available: num.tryParse(availableController.text), currency: currencyController.text);
+    Provider.of<CardProvider>(context).addCard(card);
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +35,7 @@ class _AddCardPageState extends State<AddCardPage> {
           onPressed: () {
             Navigator.of(context).pop(true);
           },
-        )
+        ), Icon(null)
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -106,6 +112,9 @@ class _AddCardPageState extends State<AddCardPage> {
                   ),
                   child: TextField(
                     controller: availableController,
+                    inputFormatters: <TextInputFormatter>[
+                      WhitelistingTextInputFormatter.digitsOnly
+                    ],
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       border: InputBorder.none,
@@ -146,10 +155,8 @@ class _AddCardPageState extends State<AddCardPage> {
                     borderRadius: BorderRadius.circular(10)
                   ),
                   color: MainStyles.primaryColor,
-                  onPressed: () async {
-                    print("yeeee");
-                  },
                   child: Text("Add", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),),
+                  onPressed: () => onAdd()
                 ),
                 Container(
                 )
