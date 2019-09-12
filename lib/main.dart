@@ -15,7 +15,7 @@ void main() => runApp(
     builder: (context) => CardProvider(),
     child: new MaterialApp(
       debugShowCheckedModeBanner: false,
-      darkTheme: ThemeData(fontFamily: 'OpenSans'),
+      theme: ThemeData(fontFamily: 'OpenSans'),
       home: HomePage(),
     )
   ),
