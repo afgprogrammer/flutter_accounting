@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_accounting/Database/moor_database.dart';
 import 'package:flutter_accounting/Models/CardModel.dart';
 
 class CardViewComponent extends StatefulWidget {
-  final CardModel card;
+  final BankCard card;
 
   CardViewComponent(this.card) : super();
   
@@ -21,7 +22,7 @@ class _CardViewComponentState extends State<CardViewComponent> {
         child: Container(
           margin: EdgeInsets.only(right: 10),
           decoration: BoxDecoration(
-            color: widget.card.color,
+            color: Colors.black,
             borderRadius: BorderRadius.circular(20.0),
           ),
           child: Padding(
