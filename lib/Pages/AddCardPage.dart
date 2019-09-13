@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_accounting/Components/AppBarComponent.dart';
+import 'package:flutter_accounting/Database/moor_database.dart';
 import 'package:flutter_accounting/Models/CardModel.dart';
 import 'package:flutter_accounting/Styles/MainStyles.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +23,11 @@ class _AddCardPageState extends State<AddCardPage> {
   void onAdd() {
     final CardModel card = CardModel(color: Colors.blue, name: nameController.text, number: numberController.text, bank: bankController.text, available: num.tryParse(availableController.text), currency: currencyController.text);
     Provider.of<CardProvider>(context).addCard(card);
+    final database = Provider.of<AppDatabase>(context);
+
+    BankCard bankCard = BankCard(name: nameController.text, number: numberController.text, bank: bankController.text, available: num.tryParse(availableController.text), currency: currencyController.text);
+    database.insertCard(bankCard);
+    
     Navigator.pop(context);
   }
 
